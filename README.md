@@ -44,8 +44,24 @@
 ### Linha de desenvolvimento 2
 <p>A segunda linha de desenvolvimento foi pensada para atender mais precisamente ao que foi solicitado e para garantir o funcionamento caso não seja possível o suporte ao banco de dados cometado.</p>
 
-*Exercício 1 : Construa uma aplicação que irá consumir dados da API do IBGE. Deve ser possível realizar uma chamada através de API REST contendo os parâmetros necessários como ...
-O serviço também deverá ser capaz de utilizar JOBS para execução de consultas através de CRON cadastradas anteriormente em banco de dados, depositando os dados obtidos no em arquivos em formatos de sua preferência.* 
+    Exercício 1 : Construa uma aplicação que irá consumir dados da API do IBGE. Deve ser possível realizar uma chamada através 
+    de API REST contendo os parâmetros necessários como ...
+    O serviço também deverá ser capaz de utilizar JOBS para execução de consultas através de CRON cadastradas anteriormente em 
+    banco de dados, depositando os dados obtidos no em arquivos em formatos de sua preferência.
 
-<p>Para este exercício, foi desenvolvido o script "ConsultaLocalidadesApi.py, que consonme o mesmo serviço utilizado acima. Esta requisição necessita passar o ID do município para a consulta, o que não é muito prático, mas é o critério adotado.</p>
+<p>Para este exercício, foi desenvolvido o script "ConsultaLocalidadesApi.py, que consome o mesmo serviço utilizado acima. Esta requisição necessita passar o ID do município para a consulta, o que não é muito prático, mas é o critério adotado. </p>
+<p>Pode ser testado na opção 6 do menu principal "CONSULTA LOCALIDADE POR ID" </p>
+<p>Pode ser testado no terminal, indo até a pasta dos onde estão os scripts, chamar o script seguido do id.</p>
+
+    Exemplo: "ConsultaLocalidadesApi.py 1100015"
+    
+<p>O script de consulta recebe um parâmetro, consulta na API, imprime os resultados na tela ou retorna o request para a chamada da função.
   
+    Exercício 2 ... Deve existir um esquema de filas para orquestração das chamadas à API do IBGE. Exemplo: A aplicação irá 
+    receber um requisição REST ou ler na base as consultas que devem ser executadas de acordo com a CRON e disparar mensagens 
+    para um consumidor da API do IBGE...
+    
+    Implemente a arquitetura desenhada no exercício 2. Considere, caso a arquitetura fique muito complexa, implementar apenas uma 
+    parte dela. Desejável ao menos a parte da fila.
+
+<p>Para os exercícios 2 e 3, foram desenvolvidos scripts para tratamento da fila através de arquivo.</p>
