@@ -1,3 +1,9 @@
+'''
+Cadastra uma fila de consultas na api, para reaclização de consultas em lote.
+O script escreve um arquivo em C:\fila_de_consulta.txt onde será buscado a sequencia das
+consultas.
+
+'''
 import datetime
 
 def cadastro_consulta():
@@ -16,4 +22,4 @@ def cadastro_consulta():
     f.close()
 
 if __name__ == '__main__':
-    cadastro_consulta()()
+    cadastro_consulta()
