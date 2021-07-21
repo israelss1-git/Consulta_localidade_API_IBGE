@@ -15,4 +15,5 @@ def cadastro_consulta():
     f.write(reg)
     f.close()
 
-cadastro_consulta()
+if __name__ == '__main__':
+    cadastro_consulta()()

@@ -10,7 +10,7 @@ Consulta as localidades, no banco de dados ou na api, através do nome.
 def conexaoDB():
     conn = pyodbc.connect('Driver={SQL Server};'
                           'Server=DESKTOP-DPP33GN;'
-                          'Database=BD_SQL_GAMMA_IBGE;'
+                          'Database=BD_IBGE_LOCALIDADE2;'
                           'UID=sa;'
                           'PWD=sa;')
 

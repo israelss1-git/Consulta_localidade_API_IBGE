@@ -17,7 +17,7 @@ afim de refletir as novas alterações. Ele deletará todos os dados e irá carr
 def conexaoDB():
     conn = pyodbc.connect('Driver={SQL Server};'
                           'Server=DESKTOP-DPP33GN;'
-                          'Database=BD_SQL_GAMMA_IBGE;'
+                          'Database=BD_IBGE_LOCALIDADE2;'
                           'UID=sa;'
                           'PWD=sa;')
 
