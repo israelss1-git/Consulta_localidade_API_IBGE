@@ -36,5 +36,12 @@
 * Não é exatamente a proposta do exercício
 * Necessita de suporte a banco de dados e configuração
 
+#### Consultas
+<p> Na opção 1 do menu principal "CONSULTAR LOCALIDADE API", o script realiza uma consulta por nome diretamente na API do IBGE, se passar pelo ssuporte ao banco de dados. Essa consulta foi idealizada por nome para ser parecida com a consulta na base de dados. Esse opção foi elaborada a fim de comparação com a consulta realizada no banco de dados que pode ser feita na opção 2 do menu principa "CONSULTAR LOCALIDADE BD".</p>
+
+**Caso não seja possível suporte a banco de dados, as opções 2 e 3 nãoestarão disponíveis.**
+
 ### Linha de desenvolvimento 2
+<p>A segunda linha de desenvolvimento foi pensada para atender mais precisamente ao que foi solicitado e para garantir o funcionamento caso não seja possível o suporte ao banco de dados cometado.</p>
+<p></p>
   
