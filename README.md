@@ -81,6 +81,9 @@
 
 #### Implementação
 <p>Para facilitar o teste, a opção 4 "CADASTRAR CONSULTA EM LOTE" do menu principal, possibiita cadastrar uma solicitação para ser processada no arquivo. O arquivo com a lista e os arquivos gerados ficam no C:, necessitando que o SO tenha esta unidade. O arquivo "fila_de_consulta.txt" pode ser escrito em outros editores e disponibiizados neste caminho para execução via terminal.</p>
-<p>A opção 5 do menu principal "EXECUTAR FILA DE CONSULTAS" executa a consulta em lote das solicitações em arquivo e disponibiliza os arquivos com o resultado do diretório C. Essa opção chama o script FilaConsultasApi.py, que não necessita de argumentos. O scrip pode ser chamado pelo terminal e essa é a forma ideal para a chamada, uma vez que o propósito é agendar em uma CRON a chamada periódica deste serviço. Abaixo, um exemplo para a chamada do serviço</p>
+<p>A opção 5 do menu principal "EXECUTAR FILA DE CONSULTAS" executa a consulta em lote das solicitações em arquivo e os disponibiliza com o resultado no diretório C. Essa opção chama o script FilaConsultasApi.py, que não necessita de argumentos. O script pode ser chamado pelo terminal e essa é a forma ideal para a chamada, uma vez que o propósito é agendar em uma CRON a chamada periódica deste serviço. Abaixo, um exemplo para a chamada do serviço</p>
 
     FilaConsultasApi.py
+
+## Conclusão
+O resultado deste trabalho é para demonstrar uma ideia de utilização do serviço. Pode ser melhorado, refatorado, incrementado com arquivos de configuração, log, classes, patterns e várias outras formas. Espero ter alcançado a ideia e cumprido o propósito do exercício.
