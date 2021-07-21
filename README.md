@@ -5,7 +5,7 @@
   
 ## Preparação do ambiente
   ### Banco de dados
-  <p> A aplicação utiliza um banco de dados em MS SQL Server. Antes de rodar a aplicação, criar o modelo de dados utilizando o script incluído no projeto "CreateDatabaseIBGELocalidade.sql". Não foi criado uma carga ou um backup porque a própria aplicação tem uma opção para consulta e carga do modelo relacional, na opção 3 do menu.
+  <p> A aplicação utiliza um banco de dados em MS SQL Server. Antes de rodar a aplicação, criar o modelo de dados utilizando o script incluído no projeto "Cortex/Cortex/CreateDatabaseIBGELocalidade.sql". Não foi criado uma carga ou um backup porque a própria aplicação tem uma opção para consulta e carga do modelo relacional, na opção 3 do menu. Nesta mesma pasta há também consultas para testes da carga diretamente no banco de dados.
   O modelo é representado pelo diagrama abaixo.
 </p>  
    <img src="https://github.com/israelss1-git/Consulta_localidade_API_IBGE/blob/master/Cortex/DiagramaDadosIBGELocalidade.png" width="600" title="Diagrama de Banco de Dados">
