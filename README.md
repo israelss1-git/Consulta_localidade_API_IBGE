@@ -43,5 +43,9 @@
 
 ### Linha de desenvolvimento 2
 <p>A segunda linha de desenvolvimento foi pensada para atender mais precisamente ao que foi solicitado e para garantir o funcionamento caso não seja possível o suporte ao banco de dados cometado.</p>
-<p></p>
+
+*Exercício 1 : Construa uma aplicação que irá consumir dados da API do IBGE. Deve ser possível realizar uma chamada através de API REST contendo os parâmetros necessários como ...
+O serviço também deverá ser capaz de utilizar JOBS para execução de consultas através de CRON cadastradas anteriormente em banco de dados, depositando os dados obtidos no em arquivos em formatos de sua preferência.* 
+
+<p>Para este exercício, foi desenvolvido o script "ConsultaLocalidadesApi.py, que consonme o mesmo serviço utilizado acima. Esta requisição necessita passar o ID do município para a consulta, o que não é muito prático, mas é o critério adotado.</p>
   
