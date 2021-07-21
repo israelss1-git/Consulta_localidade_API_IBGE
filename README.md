@@ -64,4 +64,23 @@
     Implemente a arquitetura desenhada no exercício 2. Considere, caso a arquitetura fique muito complexa, implementar apenas uma 
     parte dela. Desejável ao menos a parte da fila.
 
-<p>Para os exercícios 2 e 3, foram desenvolvidos scripts para tratamento da fila através de arquivo.</p>
+#### Arquitetura do serviço
+  
+<p>Para os exercícios 2 e 3, foram desenvolvidos scripts para tratamento da fila através de arquivo. Foi elaborado o esquemabaix para exemplificar o fluxo.</p>
+
+<img src="https://github.com/israelss1-git/Consulta_localidade_API_IBGE/blob/master/Cortex/ArquiteturaServico.png" width="600" title="Diagrama de Banco de Dados">
+
+1. Schedule chama o script a agendado para a execução de consultas à API em lote.
+2. O Script verifica se há arquivo com uma lista de execução para ser realizada. Se houve, carrega em uma lista. O arquivo deve conter id do município e nome do solicitante.
+3. Percorre a lista consultando a api com o id do município
+4. Salva o resulta em um arquivo com o ID da consulta. Um arquivo para cada consulta.
+5. Renomeia o arquivo com a lista com um prefixo com data e hora para guardar histórico. O arquivo não será mais chamado.
+6. Escreve no arqvivo de log, detalhes da consulta realizada e do solicitante
+
+<p>Abaixo no esquema, tem um exemplos de outros modulos que podem ser agregados em scripts separados. Um exemplo é um script que, agendado de tempos em tempos, veifica o arquivo de log e envia e-mais, notificando os solicitantes.</p>
+
+#### Implementação
+<p>Para facilitar o teste, a opção 4 "CADASTRAR CONSULTA EM LOTE" do menu principal, possibiita cadastrar uma solicitação para ser processada no arquivo. O arquivo com a lista e os arquivos gerados ficam no C:, necessitando que o SO tenha esta unidade. O arquivo "fila_de_consulta.txt" pode ser escrito em outros editores e disponibiizados neste caminho para execução via terminal.</p>
+<p>A opção 5 do menu principal "EXECUTAR FILA DE CONSULTAS" executa a consulta em lote das solicitações em arquivo e disponibiliza os arquivos com o resultado do diretório C. Essa opção chama o script FilaConsultasApi.py, que não necessita de argumentos. Essa é a forma ideal para a chamada, uma vez que o propósito é agendar em uma CRON a chamada periódica deste serviço. Abaixo, um exemplo a para a chamada do serviço</p>
+
+    FilaConsultasApi.py
