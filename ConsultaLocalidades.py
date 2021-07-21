@@ -1,21 +1,9 @@
-import pyodbc
+import ConexaoDB
 import requests
-import os
 
 '''
 Consulta as localidades, no banco de dados ou na api, através do nome.
 '''
-
-# Conexão com o DB.
-def conexaoDB():
-    conn = pyodbc.connect('Driver={SQL Server};'
-                          'Server=DESKTOP-DPP33GN;'
-                          'Database=BD_IBGE_LOCALIDADE2;'
-                          'UID=sa;'
-                          'PWD=sa;')
-
-    return conn.cursor()
-
 
 # Realiza uma chamada ao serviço do IBGE e retona um json
 def requisicao_api():
@@ -51,10 +39,10 @@ def consulta_localidade_cidade_api(cidade):
 
 def consulta_localidade_cidade_bd(cidade):
 
-    conn = conexaoDB()
+    conn = ConexaoDB.conexaoDB()
 
     cons = conn.execute(f"SELECT DISTINCT "
-                        f"	DIST.ID_CIDADE AS ID, "
+                        f"	DIST.ID_MUNICIPIO AS ID, "
                         f"	DIST.NOME AS DISTRITO, "
                         f"	MUN.NOME AS CIDADE, "
                         f"	MICRO.NOME AS MICRORREGIAO, "
@@ -66,7 +54,7 @@ def consulta_localidade_cidade_bd(cidade):
                         f"INNER JOIN MESORREGIAO MESO ON UF.ID = MESO.ID_UF "
                         f"INNER JOIN MICRORREGIAO MICRO ON MESO.ID = MICRO.ID_MESORREGIAO "
                         f"INNER JOIN MUNICIPIO AS MUN ON MICRO.ID = MUN.ID_MICRORREGIAO "
-                        f"INNER JOIN DISTRITO AS DIST ON MUN.ID = DIST.ID_CIDADE "
+                        f"INNER JOIN DISTRITO AS DIST ON MUN.ID = DIST.ID_MUNICIPIO "
                         f"WHERE MUN.NOME = '{cidade}' "
                         f"ORDER BY REG.NOME, UF.NOME, MESO.NOME, MICRO.NOME, DIST.NOME DESC")
     for rs in cons:

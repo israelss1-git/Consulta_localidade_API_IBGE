@@ -1,5 +1,5 @@
-import pyodbc
 import requests
+import ConexaoDB
 
 '''
 Objetivo: consulta de API de localidade do IBGE para verificação de localidades nível distrito.
@@ -13,17 +13,6 @@ afim de refletir as novas alterações. Ele deletará todos os dados e irá carr
 
 
 '''
-# Conexão com o DB.
-def conexaoDB():
-    conn = pyodbc.connect('Driver={SQL Server};'
-                          'Server=DESKTOP-DPP33GN;'
-                          'Database=BD_IBGE_LOCALIDADE2;'
-                          'UID=sa;'
-                          'PWD=sa;')
-
-    return conn.cursor()
-
-
 # Realiza uma chamada ao serviço do IBGE e retona um json
 def requisicao_api():
     resposta = requests.get('https://servicodados.ibge.gov.br/api/v1/localidades/distritos')
@@ -39,7 +28,7 @@ def requisicao_api():
     Retorna um True para existente e false para não
 '''
 def consulta_tabela(tabela, id):
-    conn = conexaoDB()
+    conn = ConexaoDB.conexaoDB()
 
     cons = conn.execute(f"SELECT id FROM {tabela} WHERE ID = ?", id)
     s = [True for x in cons if x[0] == id]
@@ -56,7 +45,7 @@ def consulta_tabela(tabela, id):
     Verifica se o registro existe e seão existir, carrega na tabela
 '''
 def consulta_carrega(tabela, id, nome, sigla='', fk=0, fk2=0):
-    conn = conexaoDB()
+    conn = ConexaoDB.conexaoDB()
 
     cons = consulta_tabela(tabela, id)
     if cons != True:
@@ -78,7 +67,7 @@ de localidades do IBGE.
 '''
 def prepara_carga():
     print('Preparando BD para nova carga.')
-    conn = conexaoDB()
+    conn = ConexaoDB.conexaoDB()
     tabelas = ['DISTRITO', 'MUNICIPIO', 'REGIAO_IMEDIATA', 'REGIAO_INTERMEDIARIA', 'MICRORREGIAO', 'MESORREGIAO', 'UF',
                'REGIAO']
 
@@ -96,10 +85,9 @@ def prepara_carga():
     distrito.
 '''
 def carrega_db_localidades():
+    resposta = requisicao_api()
 
     prepara_carga()
-
-    resposta = requisicao_api()
     print('Carregando DB.')
 
     for js in resposta:

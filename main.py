@@ -47,6 +47,7 @@ apenas uma parte dela. Desejável ao menos a parte da fila.
 
 import CagaBDLocalidades
 import ConsultaLocalidades
+import ConsultaLocalidadesApi
 import CadastroConsultaLote
 import FilaConsultasApi
 
@@ -57,17 +58,18 @@ def option_from_user():
             '3 - ATUALIZAR BANCO DE DADOS\n'
             '4 - CADASTRAR CONSULTA EM LOTE\n'
             '5 - EXECUTAR FILA DE CONSULTAS\n'
-            "6 - FECHAR PROGRAMA\n")
+            '6 - CONSULTA LOCALIDADE POR ID\n'
+            "7 - FECHAR PROGRAMA\n")
 
     option = 0
-    while option < 1 or option > 6:
+    while option < 1 or option > 7:
         try:
             option = int(input("DIGITE A OPÇÃO DESEJADA: "))
         except ValueError:
             print("ENTRADA INVÁLIDA!".center(80))
             option = 0
             continue
-        if option < 1 or option > 6:
+        if option < 1 or option > 7:
             print("OPÇÃO INVÁLIDA. DIGITE UMA OPÇÃO VÁLIDA DE ACORDO COM O MENU ACIMA!".center(80))
 
     return option
@@ -77,7 +79,7 @@ if __name__ == '__main__':
 
     option = 0
 
-    while option >= 0 and option <= 6:
+    while option >= 0 and option <= 7:
 
         if option == 0:  # Voltar ao menu principal
             option = option_from_user()
@@ -108,5 +110,10 @@ if __name__ == '__main__':
             option = 0
 
         if option == 6:  #
+            ident = input("Entre com o ID do município: ")
+            ConsultaLocalidadesApi.cons_municipio_id(ident)
+            option = 0
+
+        if option == 7:  #
             print("PROGRAMA FINALIZADO!".center(80))
             break
