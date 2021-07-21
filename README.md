@@ -12,7 +12,7 @@
   
 ### Configuração de usuário
   
-  Após a criação do banco de dados, configurar o usuário e senha no arquivo "ConexaoDB.py" nas linhas 5 e 6
+  Após a criação do banco de dados, configurar o usuário e senha no arquivo "ConexaoDB.py" nas linhas 5 e 6. Após as configurações, executar o script main.py para execução do menu de opções.
 
 ## Propostas
 <p>
